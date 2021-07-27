@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EEF9BF;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    background-color: #A7E9AF;
+    width: 117px;
+    height: 146px;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    margin: 17px;
+    cursor: pointer;
+}
+
+img {
+    width: 100px;
+}
+
+.title {
+    color: #75B79E;
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 66px;
+    margin: 40px auto 47px auto;
+}
+
+.container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
