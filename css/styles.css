@@ -18,7 +18,7 @@ button {
     border-radius: 5px;
     margin: 17px;
     cursor: pointer;
-    transition: all .5s;
+    transition: .5s;
     transform-style: preserve-3d;
 }
 
@@ -41,6 +41,18 @@ img {
     margin: 0 auto;
 }
 
+.back-face {
+    display: none;
+}
+
 .selected {
-    transform: rotateY(180deg)
+    transform: rotateY(180deg);
+}
+
+.selected .front-face {
+    display: none;
+}
+
+.selected .back-face {
+    display: contents;
 }

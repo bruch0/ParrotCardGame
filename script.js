@@ -11,7 +11,12 @@ function startGame() {
 
     for (let i = 0; i < qty; i++) {
         div += `<button onclick="virarCarta(this)">
-                    <img src="assets/front.png" alt="Imagem de um papagaio">
+                    <div class="front-face">
+                        <img src="assets/front.png" alt="Imagem de um papagaio">
+                    </div>
+                    <div class="back-face">
+                        <img src="assets/bobrossparrot.gif" alt="GIF de um papagaio">
+                    </div>
                 </button>`
     }
     document.querySelector(".container").innerHTML = div;
@@ -28,8 +33,5 @@ function virarCarta(element) {
     console.log(element)
 }
 
-function check (element1, element2) {
-    console.log('teste');
-}
 
 startGame()
