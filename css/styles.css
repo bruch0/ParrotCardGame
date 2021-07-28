@@ -56,3 +56,15 @@ img {
 .selected .back-face {
     display: contents;
 }
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

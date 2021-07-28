@@ -11,12 +11,11 @@ function startGame() {
 
     let sorted_cards = cards.sort(comparador).slice(0, qty / 2);
     sorted_cards = sorted_cards.concat(sorted_cards);
-    console.log(sorted_cards)
 
     let game_cards = sorted_cards.sort(comparador);
 
     for (let i = 0; i < qty; i++) {
-        div += `<button onclick="virarCarta(this)">
+        div += `<button onclick="virarCarta(this)" id="teste">
                     <div class="front-face">
                         <img src="assets/front.png" alt="Imagem de um papagaio">
                     </div>
@@ -38,6 +37,7 @@ function virarCarta(element) {
         selected = element
     }
     console.log(element)
+    console.log(document.getElementsByClassName('selected').src)
 }
 
 function comparador() { 
