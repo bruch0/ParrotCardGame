@@ -18,6 +18,8 @@ button {
     border-radius: 5px;
     margin: 17px;
     cursor: pointer;
+    transition: all .5s;
+    transform-style: preserve-3d;
 }
 
 img {
@@ -37,4 +39,8 @@ img {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+}
+
+.selected {
+    transform: rotateY(180deg)
 }
