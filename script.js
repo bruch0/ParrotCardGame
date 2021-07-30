@@ -1,11 +1,23 @@
 let clock = 0;
 let qty = 0;
 let div = '';
+let slide = ['.container', '.title', '.preview'];
 let selectedCards = [];
 const cards = ['bobross', 'explody', 'fiesta', 'metal', 'revertit', 'triplets', 'unicorn']
 let playerMoves = 0;
+let rankingName = '';
+let rankingCards = '';
+let rankingTime = '';
+let rankingScore = '';
+let player = '';
+let idClock;
+
 
 function startGame() {
+    let previewEnabled = document.querySelector('.preview') !== null;
+    if (previewEnabled) {
+        document.querySelector('.preview').remove();
+    }
     while (qty < 4 || qty > 15 || qty % 2 !== 0) {
         qty = parseInt(prompt("Com quantas cartas você quer jogar?"))
     }
@@ -27,6 +39,8 @@ function startGame() {
     }
     
     document.querySelector(".container").innerHTML = div;
+    idClock = setInterval(clockUpdate, 1000)
+    document.querySelector('.ranking-button').style.display = 'none';
 }
 
 function virarCarta(element) {
@@ -76,6 +90,14 @@ function endGame() {
 }
 
 function regameManager () {
+    let choice;
+    while (choice !== 'sim' && choice !== 'nao') {
+        choice = prompt("Deseja salvar seu score no ranking?(sim / nao)");
+    }
+    if (choice === 'sim') {
+        user = prompt("Como é seu nome?!");
+    }
+    
     let playAgain;
         while (playAgain !== 'sim' && playAgain !== 'nao') {
             playAgain = prompt("Quer jogar de novo?(sim / nao)");
@@ -90,7 +112,8 @@ function regameManager () {
             startGame()
         }
         else {
-            alert("Ok! Te vejo depois!")
+            alert("Ok! Te vejo depois!");
+            clearInterval(idClock);
         }
 }
 
@@ -102,15 +125,114 @@ function clockUpdate () {
 
 function intToTime (time) {
     let minutes = parseInt(time / 60)
-    console.log(minutes)
     let seconds = time - (minutes * 60)
-    console.log(seconds)
     let hours = parseInt(minutes / 60)
-    console.log(hours)
     minutes -= hours * 60
-    console.log(minutes)
     return `${hours <= 9 ? "0"+hours : hours}:${minutes<= 9 ? "0"+minutes : minutes}:${seconds <= 9 ? "0"+seconds : seconds}`
 }
 
-startGame();
-setInterval(clockUpdate, 1000)
+
+function rankingScreen() {
+    let clockEnabled = document.querySelector('.clock') !== null && idClock !== undefined;
+    if (clockEnabled) {
+        document.querySelector('.clock').remove();
+        clearInterval(idClock);
+    }
+    for (let i = 0; i < slide.length; i++) {
+        document.querySelector(slide[i]).classList.add('slide-left');
+        setTimeout(function () {
+            document.querySelector(slide[i]).remove();
+        }, 800) ;
+    }
+
+    rankingLoader()
+    document.querySelector('.ranking-button').style.display = 'none';
+    setTimeout (function (){
+        document.querySelector('.initial-screen-button').style.display = 'initial';
+    }, 1000);
+}
+
+function rankingLoader() {
+    for (let i = 0 ; i < ranking.length ; i ++) {
+        rankingName += `<li class="list-info">${ranking[i]['name']}</li>`;
+        rankingCards += `<li class="list-info">${ranking[i]['cards']}</li>`;
+        rankingTime += `<li class="list-info">${ranking[i]['time']}</li>`;
+        rankingScore += `<li class="list-info">${ranking[i]['score']}</li>`;
+    }
+
+    setTimeout(function() {
+        document.querySelector('.ranking').innerHTML = `<div class="title">
+                                                            RANKING
+                                                        </div> 
+                                                        <div class="container">
+                                                            <div class="name">
+                                                            <ul>
+                                                                <li class="info">NOME</li>
+                                                                ${rankingName}
+                                                            </ul>
+                                                            </div>
+                                                            <div class="cads">
+                                                            <ul>
+                                                                <li class="info">CARTAS</li>
+                                                                ${rankingCards}
+                                                            </ul>
+                                                            </div>
+                                                            <div class="time">
+                                                            <ul>
+                                                                <li class="info">TEMPO</li>
+                                                                ${rankingTime}
+                                                            </ul>
+                                                            </div>
+                                                            <div class="score">
+                                                            <ul>
+                                                                <li class="info">PONTUAÇÃO</li>
+                                                                ${rankingScore}
+                                                            </ul>
+                                                            </div>
+                                                        </div>`
+                                                    }, 1000)
+}
+
+function initialScreen () {
+    document.querySelector('.ranking').classList.add('slide-right');
+    setTimeout(function () {
+        document.querySelector('.ranking').remove()
+    }, 800);
+
+    document.querySelector('.initial-screen-button').style.display = 'none';
+    setTimeout (function (){
+        document.querySelector('.ranking-button').style.display = 'initial';
+    }, 1000);
+
+    setTimeout(initialScreenLoader, 700);
+}
+
+function initialScreenLoader() {
+    document.querySelector('body').innerHTML = `<div class="title">
+                                                    PARROT CARD GAME
+                                                </div>
+                                                <div class="clock">
+                                                    
+                                                </div>
+                                                <div class="container">  
+                                                    <button class="start-game" onclick="startGame()">Iniciar Jogo!</button>
+                                                </div>
+
+                                                <img class="preview" src="assets/gamepreview.gif" alt="Preview do jogo">
+
+                                                <button class="ranking-button" title="ranking" onclick="rankingScreen()">
+                                                    <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+                                                </button>   
+
+                                                <button class="initial-screen-button" title="initial screen" onclick="initialScreen()">
+                                                    <ion-icon name="arrow-back-circle-outline"></ion-icon>
+                                                </button>   
+
+                                                <div class="ranking">
+                                                </div>
+
+                                                <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+                                                <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>`
+}
+
+initialScreenLoader();

@@ -22,8 +22,26 @@ button {
     transform-style: preserve-3d;
 }
 
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    padding: 10px;
+}
+
+.btn:focus {
+    outline: none;
+}
+
 img {
     width: 8vw;
+}
+
+ion-icon {
+    pointer-events: none;
 }
 
 .title {
@@ -32,6 +50,20 @@ img {
     font-weight: bold;
     line-height: 66px;
     margin: 40px auto 47px auto;
+    text-align: center;
+}
+
+.start-game {
+    width: 60%;
+    height: 50%;
+    color: purple;
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 66px;
+}
+
+.preview {
+    width: 700px;
 }
 
 .clock {
@@ -64,6 +96,108 @@ img {
 
 .selected .back-face {
     display: contents;
+}
+
+.ranking-button, .initial-screen-button {
+    font-size: 40px;
+    width: 43px;
+    height: 42px;
+    color: #fff;
+    background: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    background-size: 400%;
+    border-radius: 50%;
+    padding: 0px;
+    position: absolute;
+    top: calc(45vh - 26px);
+    right: 50px;
+    transition: all .5s;
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+
+.initial-screen-button {
+    top: calc(45vh - 26px);
+    left: 50px;
+    display: none;
+    background-position: right;
+}
+
+.ranking-button:hover {
+    background-position: right;
+}
+
+.initial-screen-button:hover {
+    background-position: left;
+}
+
+.container.slide-left {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    animation-name: slide-from-left;
+    animation-duration: 2s;
+}
+
+.title.slide-left {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    animation-name: slide-from-left;
+    animation-duration: 2s;
+}
+
+.preview.slide-left {
+    position: absolute;
+    left: 50%;
+    top: 34%;
+    transform: translateX(-50%);
+    animation-name: slide-from-left;
+    animation-duration: 2s;
+}
+
+.ranking.slide-right {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translateX(50%);
+    animation-name: slide-from-right;
+    animation-duration: 2s;
+}
+
+.ranking .container {
+    flex-wrap: nowrap;
+}
+
+.info {
+    font-size: 40px;
+    padding: 30px;
+    background: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.list-info {
+    color: #75B79E;
+    font-size: 20px;
+}
+  
+@keyframes slide-from-left {
+    from {
+      left: 50%;
+    }
+    to {
+      left: -50%;
+    }
+}
+  
+@keyframes slide-from-right {
+    from {
+      right: 40%;
+    }
+    to {
+      right: -50%;
+    }
 }
 
 @media (max-width: 600px) {
