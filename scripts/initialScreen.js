@@ -1,7 +1,7 @@
-function initialScreen () {
-    document.querySelector('.ranking').classList.add('slide-right');
+function initialScreen (side) {
+    document.querySelector('.next-screen').classList.add(`slide-${side}`);
     setTimeout(function () {
-        document.querySelector('.ranking').remove()
+        document.querySelector('.next-screen').remove()
     }, 700);
 
     document.querySelector('.initial-screen-button').style.display = 'none';
@@ -20,20 +20,20 @@ function initialScreenLoader() {
                                                     
                                                 </div>
                                                 <div class="container">  
-                                                    <button class="start-game" onclick="startGame()">Iniciar Jogo!</button>
-                                                </div>
+                                                    <button class="options" onclick="startGame()">Iniciar Jogo!</button>
 
-                                                <img class="preview" src="assets/gamepreview.gif" alt="Preview do jogo">
+                                                    <button class="options" onclick="howToPlayScreen()">Como jogar?</button>
+                                                </div>
 
                                                 <button class="ranking-button" title="ranking" onclick="rankingScreen()">
                                                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                                                 </button>   
 
-                                                <button class="initial-screen-button" title="initial screen" onclick="initialScreen()">
+                                                <button class="initial-screen-button" title="initial screen" onclick="initialScreen('right')">
                                                     <ion-icon name="arrow-back-circle-outline"></ion-icon>
                                                 </button>   
 
-                                                <div class="ranking">
+                                                <div class="next-screen">
                                                 </div>
 
                                                 <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>

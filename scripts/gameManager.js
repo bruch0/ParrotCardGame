@@ -66,11 +66,11 @@ function endGame() {
 
     if(allSelected) {
         alert(`Você ganhou em ${playerMoves} jogadas!`);
-        regameManager();
+        regame();
     }
 }
 
-function regameManager () {
+function regame () {
     let choice;
     while (choice !== 'sim' && choice !== 'nao') {
         choice = prompt("Deseja salvar seu score no ranking?(sim / nao)");
@@ -98,7 +98,7 @@ function regameManager () {
         alert("Ok! Te vejo depois!");
         clearInterval(idClock);
         document.querySelector('.title').innerHTML = 'Clique aqui para voltar para a tela inicial';
-        document.querySelector('.title').setAttribute('onclick', 'initialScreen()')
+        document.querySelector('.title').setAttribute('onclick', 'initialScreen("left")')
         document.querySelector('.title').setAttribute('cursor', 'pointer')
         clock = 0;
         qty = 0;

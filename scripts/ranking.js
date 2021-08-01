@@ -32,7 +32,7 @@ function rankingUpdater () {
 
 function rankingLoader() {
     setTimeout(function() {
-        document.querySelector('.ranking').innerHTML = `<div class="title">
+        document.querySelector('.next-screen').innerHTML = `<div class="title">
                                                             RANKING
                                                         </div> 
                                                         <div class="container">
@@ -61,7 +61,7 @@ function rankingLoader() {
                                                             </ul>
                                                             </div>
                                                         </div>`
-                                                    }, 1000)
+                                                    }, 700)
 }
 
 function rankingScreen() {
@@ -81,5 +81,5 @@ function rankingScreen() {
     document.querySelector('.ranking-button').style.display = 'none';
     setTimeout (function (){
         document.querySelector('.initial-screen-button').style.display = 'initial';
-    }, 1000);
+    }, 700);
 }

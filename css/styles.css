@@ -49,8 +49,6 @@ ion-icon {
     display: inline;
 }
 
-
-
 .title {
     color: #75B79E;
     font-size: 56px;
@@ -60,17 +58,24 @@ ion-icon {
     text-align: center;
 }
 
-.start-game {
+.options {
     width: 60%;
     height: 50%;
     color: purple;
     font-size: 56px;
     font-weight: bold;
     line-height: 66px;
+    margin-bottom: 30px;
 }
 
-.preview {
-    width: 700px;
+.help {
+    width: 60%;
+    height: 50%;
+    color: purple;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 25px;
+    margin-bottom: 30px;
 }
 
 .clock {
@@ -151,9 +156,14 @@ ion-icon {
     background-position: left;
 }
 
-.ranking .container {
+.next-screen .container {
     flex-wrap: nowrap;
 }
+
+.next-screen .container.how-to-play{
+    flex-wrap: wrap;
+}
+
 
 .info {
     font-size: 40px;
@@ -193,5 +203,37 @@ ion-icon {
 
     .clock {
         font-size: 5vw;
+    }
+
+    .options {
+        width: 90%;
+        height: 20vw;
+        color: purple;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 25px;
+        margin-bottom: 30px; 
+    }
+
+    .ranking-button {
+        right: 0;
+        margin: 0;
+    }
+
+    .next-screen .container{
+        flex-direction: row;
+    }
+
+    .info {
+        font-size: 9px;
+    }
+
+    .initial-screen-button {
+        left: 0;
+        margin: 0;
+    }
+
+    .help {
+        width: 90%;
     }
 }

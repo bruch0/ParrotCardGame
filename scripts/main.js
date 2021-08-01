@@ -1,7 +1,7 @@
 let clock = 0;
 let qty = 0;
 let div = '';
-let slide = ['.container', '.title', '.preview'];
+let slide = ['.container', '.title'];
 let selectedCards = [];
 const cards = ['bobross', 'explody', 'fiesta', 'metal', 'revertit', 'triplets', 'unicorn']
 let playerMoves = 0;
