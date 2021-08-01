@@ -2,7 +2,11 @@
     box-sizing: border-box;
 }
 
-body {
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+  body {
     background-color: #EEF9BF;
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -44,6 +48,8 @@ ion-icon {
     pointer-events: none;
     display: inline;
 }
+
+
 
 .title {
     color: #75B79E;
@@ -145,42 +151,6 @@ ion-icon {
     background-position: left;
 }
 
-.container.slide-left {
-    position: absolute;
-    left: 50%;
-    top: 20%;
-    transform: translateX(-50%);
-    animation-name: slide-from-left;
-    animation-duration: 2s;
-}
-
-.title.slide-left {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    animation-name: slide-from-left;
-    animation-duration: 2s;
-}
-
-.preview.slide-left {
-    position: absolute;
-    left: 50%;
-    top: 34%;
-    transform: translateX(-50%);
-    animation-name: slide-from-left;
-    animation-duration: 2s;
-}
-
-.ranking.slide-right {
-    position: absolute;
-    left: 50%;
-    top: 0%;
-    transform: translateX(50%);
-    animation-name: slide-from-right;
-    animation-duration: 2s;
-}
-
 .ranking .container {
     flex-wrap: nowrap;
 }
@@ -196,24 +166,6 @@ ion-icon {
 .list-info {
     color: #75B79E;
     font-size: 20px;
-}
-  
-@keyframes slide-from-left {
-    from {
-      left: 50%;
-    }
-    to {
-      left: -50%;
-    }
-}
-  
-@keyframes slide-from-right {
-    from {
-      right: 40%;
-    }
-    to {
-      right: -80%;
-    }
 }
 
 @media (max-width: 1100px) {

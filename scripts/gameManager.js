@@ -23,7 +23,7 @@ function startGame() {
                 </button>`
     }
     
-    document.querySelector(".container").innerHTML = div + mainScreenButton;
+    document.querySelector(".container").innerHTML = div;
     idClock = setInterval(clockUpdate, 1000)
     document.querySelector('.ranking-button').style.display = 'none';
 }
@@ -81,29 +81,31 @@ function regameManager () {
     }
     
     let playAgain;
-        while (playAgain !== 'sim' && playAgain !== 'nao') {
-            playAgain = prompt("Quer jogar de novo?(sim / nao)");
-        }
-        
-        if (playAgain === 'sim') {
-            clock = 0;
-            qty = 0;
-            div = '';
-            selectedCards = [];
-            playerMoves = 0;
-            clearInterval(idClock);
-            startGame()
-        }
-        else {
-            alert("Ok! Te vejo depois!");
-            clearInterval(idClock);
-            document.querySelector('.main-screen').style.display = 'initial';
-            clock = 0;
-            qty = 0;
-            div = '';
-            selectedCards = [];
-            playerMoves = 0;
-        }
+    while (playAgain !== 'sim' && playAgain !== 'nao') {
+        playAgain = prompt("Quer jogar de novo?(sim / nao)");
+    }
+    
+    if (playAgain === 'sim') {
+        clock = 0;
+        qty = 0;
+        div = '';
+        selectedCards = [];
+        playerMoves = 0;
+        clearInterval(idClock);
+        startGame()
+    }
+    else {
+        alert("Ok! Te vejo depois!");
+        clearInterval(idClock);
+        document.querySelector('.title').innerHTML = 'Clique aqui para voltar para a tela inicial';
+        document.querySelector('.title').setAttribute('onclick', 'initialScreen()')
+        document.querySelector('.title').setAttribute('cursor', 'pointer')
+        clock = 0;
+        qty = 0;
+        div = '';
+        selectedCards = [];
+        playerMoves = 0;
+    }
 }
 
 function comparador() { 
