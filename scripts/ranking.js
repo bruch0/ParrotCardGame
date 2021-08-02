@@ -33,7 +33,7 @@ function rankingUpdater () {
                                                         RANKING
                                                     </div> 
 
-                                                    <div class="container">
+                                                    <div class="container-ranking">
                                                         <div class="name">
                                                         <ul>
                                                             <li class="info">NOME</li>
