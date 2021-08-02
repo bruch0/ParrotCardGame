@@ -69,6 +69,11 @@ aside {
 
 aside div {
     color: #EEF9BF;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
 }
 
 img {
@@ -131,8 +136,6 @@ ion-icon {
     margin-bottom: 30px;
 }
 
-
-
 .clock {
     position: absolute;
     top: 45px;
@@ -165,6 +168,10 @@ ion-icon {
     height: 30px;
 }
 
+.container-ranking {
+    flex-wrap: nowrap;
+}
+
 .info {
     font-size: 2.5vw;
     padding: 30px;
@@ -194,14 +201,6 @@ ion-icon {
     aside button {
         width: 20%;
         height: 30vw;
-    }
-
-    aside div {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        justify-content: center;
     }
 
     aside img {
