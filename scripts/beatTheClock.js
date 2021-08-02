@@ -46,10 +46,13 @@ function checkImpossible() {
 function chooseDificult(cards, time) {
     qty = cards;
     clock = time;
-    if (cards === 14 && time === 20) {
-        console.log('a')
-    }
+
     startGame();
+}
+
+function homeBeat() {
+    initialScreenLoader();
+    setScreen();
 }
 
 function unsetScreen() {

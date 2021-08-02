@@ -20,7 +20,7 @@ function startGame() {
     }
     
     document.querySelector("main").innerHTML = div;
-    document.querySelector('footer').style.display = 'none';
+    document.querySelector('footer').classList.add('remove');
     if (beatStatus === false) {
         idClock = setInterval(clockUpdate, 1000)
     }
@@ -67,6 +67,10 @@ function endGame() {
 
     if(allSelected) {
         alert(`Você ganhou em ${playerMoves} jogadas!`);
+
+        if (beatStatus === true && qty === 14){
+            alert('Parabéns, você venceu o modo difícil, agora tente o modo impossível!')
+        }
         regame();
     }
 }
@@ -92,20 +96,33 @@ function regame () {
     }
     
     if (playAgain === 'sim') {
-        clock = 0;
-        qty = 0;
         div = '';
-        selectedCards = [];
-        playerMoves = 0;
-        clearInterval(idClock);
-        startGame()
+        if (beatStatus === true) {
+            beatTheClock();
+            clearInterval(idClock);
+        }
+
+        else {
+            clock = 0;
+            qty = 0;
+            selectedCards = [];
+            playerMoves = 0;
+            clearInterval(idClock);
+            startGame()
+        }
     }
     else {
         alert("Ok! Te vejo depois!");
         clearInterval(idClock);
-        document.querySelector('footer').style.display = 'flex';
+        document.querySelector('footer').classList.remove('remove');
         document.querySelector('footer button').innerHTML = '<ion-icon name="home-outline"></ion-icon>';
-        document.querySelector('footer button').setAttribute('onclick', 'initialScreenLoader()')
+
+        if (beatStatus === true) {
+            document.querySelector('footer button').setAttribute('onclick', 'homeBeat()')
+        }
+        else {
+            document.querySelector('footer button').setAttribute('onclick', 'initialScreenLoader()')
+        }
         clock = 0;
         qty = 0;
         div = '';
