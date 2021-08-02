@@ -157,14 +157,6 @@ ion-icon {
     display: contents;
 }
 
-.container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    justify-content: center;
-}
-
 .close {
     position: absolute;
     top: 0;
@@ -192,11 +184,6 @@ ion-icon {
 }
 
 @media (max-width: 1100px) {
-    .clock {
-        top: 110px;
-        right: 43%;
-    }
-
     aside {
         width: 90%;
         height: 90%;
@@ -204,14 +191,36 @@ ion-icon {
         left: 5%;
     }
 
-    .options {
+    aside button {
+        width: 20%;
+        height: 30vw;
+    }
+
+    aside div {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    aside img {
+        width: 100%;
+    }
+    
+    .clock {
+        top: 110px;
+        right: 43%;
+    }
+
+    .start, .start-beat {
         width: 90%;
         height: 20vw;
         font-size: 6vw;
         font-weight: bold;
         line-height: 25px;
         margin-bottom: 30px; 
-    }
+    }    
 }
 
 @media (max-width: 600px) {
@@ -240,8 +249,6 @@ ion-icon {
     .clock {
         font-size: 5vw;
     }
-
-   
 
     .info {
         font-size: 4vw;
