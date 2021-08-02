@@ -22,7 +22,6 @@ function setScreen() {
 }
 
 function beatTheClock() {
-    checkImpossible();
     document.querySelector('main').innerHTML = `<div class="title">
                                                     Escolha a dificuldade
                                                 </div>
@@ -34,6 +33,8 @@ function beatTheClock() {
                                                 <button class="start" onclick="chooseDificult(14, 20)" title="Difícil">Difícil</button>
 
                                                 <button class="start remove not-display" onclick="chooseDificult(14, 16)" title="Impossível">Impossível</button>`;
+    checkImpossible();
+
 }
 
 function checkImpossible() {
