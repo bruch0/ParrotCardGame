@@ -28,58 +28,49 @@ function rankingUpdater () {
         rankingTime += `<li class="list-info">${ranking[i]['time']}</li>`;
         rankingScore += `<li class="list-info">${ranking[i]['score']}</li>`;
     }
+
+    document.querySelector('.ranking').innerHTML = `<div class="title">
+                                                        RANKING
+                                                    </div> 
+
+                                                    <div class="container">
+                                                        <div class="name">
+                                                        <ul>
+                                                            <li class="info">NOME</li>
+                                                            ${rankingName}
+                                                        </ul>
+                                                        </div>
+                                                        <div class="cards">
+                                                        <ul>
+                                                            <li class="info">CARTAS</li>
+                                                            ${rankingCards}
+                                                        </ul>
+                                                        </div>
+                                                        <div class="time">
+                                                        <ul>
+                                                            <li class="info">TEMPO</li>
+                                                            ${rankingTime}
+                                                        </ul>
+                                                        </div>
+                                                        <div class="score">
+                                                        <ul>
+                                                            <li class="info">PONTUAÇÃO</li>
+                                                            ${rankingScore}
+                                                        </ul>
+                                                    </div>
+
+                                                        <button class="close" onclick="rankingCloser()">
+                                                        <ion-icon name="close-outline"></ion-icon>
+                                                        </button>
+                                                    </div>`
 }
 
-function rankingLoader() {
-    setTimeout(function() {
-        document.querySelector('.next-screen').innerHTML = `<div class="title">
-                                                            RANKING
-                                                        </div> 
-                                                        <div class="container">
-                                                            <div class="name">
-                                                            <ul>
-                                                                <li class="info">NOME</li>
-                                                                ${rankingName}
-                                                            </ul>
-                                                            </div>
-                                                            <div class="cads">
-                                                            <ul>
-                                                                <li class="info">CARTAS</li>
-                                                                ${rankingCards}
-                                                            </ul>
-                                                            </div>
-                                                            <div class="time">
-                                                            <ul>
-                                                                <li class="info">TEMPO</li>
-                                                                ${rankingTime}
-                                                            </ul>
-                                                            </div>
-                                                            <div class="score">
-                                                            <ul>
-                                                                <li class="info">PONTUAÇÃO</li>
-                                                                ${rankingScore}
-                                                            </ul>
-                                                            </div>
-                                                        </div>`
-                                                    }, 700)
+function rankingOpenner() {
+    document.querySelector('footer').style.display = 'none';
+    document.querySelector('.ranking').style.display = 'initial';
 }
 
-function rankingScreen() {
-    let clockEnabled = document.querySelector('.clock') !== null && idClock !== undefined;
-    if (clockEnabled) {
-        document.querySelector('.clock').remove();
-        clearInterval(idClock);
-    }
-    for (let i = 0; i < slide.length; i++) {
-        document.querySelector(slide[i]).classList.add('slide-left');
-        setTimeout(function () {
-            document.querySelector(slide[i]).remove();
-        }, 800) ;
-    }
-
-    rankingLoader();
-    document.querySelector('.ranking-button').style.display = 'none';
-    setTimeout (function (){
-        document.querySelector('.initial-screen-button').style.display = 'initial';
-    }, 700);
+function rankingCloser() {
+    document.querySelector('.ranking').style.display = 'none';
+    document.querySelector('footer').style.display = 'flex';
 }

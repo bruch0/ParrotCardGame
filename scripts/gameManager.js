@@ -1,8 +1,4 @@
 function startGame() {
-    let previewEnabled = document.querySelector('.preview') !== null;
-    if (previewEnabled) {
-        document.querySelector('.preview').remove();
-    }
     while (qty < 4 || qty > 15 || qty % 2 !== 0) {
         qty = parseInt(prompt("Com quantas cartas você quer jogar?"))
     }
@@ -23,9 +19,9 @@ function startGame() {
                 </button>`
     }
     
-    document.querySelector(".container").innerHTML = div;
+    document.querySelector("main").innerHTML = div;
+    document.querySelector('footer').style.display = 'none';
     idClock = setInterval(clockUpdate, 1000)
-    document.querySelector('.ranking-button').style.display = 'none';
 }
 
 function virarCarta(element) {
@@ -97,9 +93,9 @@ function regame () {
     else {
         alert("Ok! Te vejo depois!");
         clearInterval(idClock);
-        document.querySelector('.title').innerHTML = 'Clique aqui para voltar para a tela inicial';
-        document.querySelector('.title').setAttribute('onclick', 'initialScreen("left")')
-        document.querySelector('.title').setAttribute('cursor', 'pointer')
+        document.querySelector('footer').style.display = 'flex';
+        document.querySelector('footer button').innerHTML = '<ion-icon name="home-outline"></ion-icon>';
+        document.querySelector('footer button').setAttribute('onclick', 'initialScreenLoader()')
         clock = 0;
         qty = 0;
         div = '';
@@ -110,4 +106,8 @@ function regame () {
 
 function comparador() { 
 	return Math.random() - 0.5; 
+}
+
+function virarCartaDemo(element) {
+    element.classList.toggle('selected');
 }
