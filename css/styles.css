@@ -44,6 +44,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    transition: 1s;
 }
 
 footer button {
@@ -52,10 +53,6 @@ footer button {
     background-color: transparent;
     border: 0px;
     color: white;
-}
-
-.btn:focus {
-    outline: none;
 }
 
 aside {
@@ -76,6 +73,14 @@ aside div {
 
 img {
     width: 8vw;
+}
+
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 ul {
@@ -108,13 +113,14 @@ ion-icon {
     line-height: 66px;
     margin: 40px auto 47px auto;
     text-align: center;
+    transition: 1s;
 }
 
 .title {
     color: #75B79E;
 }
 
-.options {
+.start, .start-beat {
     width: 60%;
     height: 50%;
     background-color: #75B79E;;
@@ -175,6 +181,14 @@ ion-icon {
 .list-info {
     color: white;
     font-size: 1.5vw;
+}
+
+.remove {
+    opacity: 0;
+}
+
+.not-display {
+    display: none;
 }
 
 @media (max-width: 1100px) {

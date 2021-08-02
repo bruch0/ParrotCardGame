@@ -3,13 +3,19 @@ function initialScreenLoader() {
                                                     PARROT CARD GAME
                                                 </header>
 
+                                                <div class="title remove not-display">
+                                                    <img class="beat" src="assets/metalparrot.gif" alt="GIF   de um papagaio">
+                                                    BEAT THE CLOCK
+                                                    <img class="beat" src="assets/metalparrot.gif" alt="GIF de um papagaio">
+                                                </div>
+
                                                 <div class="clock"> 
                                                 </div>
 
                                                 <main>  
-                                                    <button class="options" onclick="startGame()" title="Iniciar jogo">Iniciar Jogo!</button>
+                                                    <button class="start" onclick="startGame()" title="Iniciar jogo">Iniciar Jogo!</button>
 
-                                                    <button class="options" onclick="howToPlayScreen()"  title="Beat the clock">Beat the clock</button>
+                                                    <button class="start-beat" onclick="setScreen()"  title="Beat the clock">Beat the clock</button>
                                                 </main>
                                                 <footer>
                                                     <button onclick="helpOpenner()" title="ajuda">

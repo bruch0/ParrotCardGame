@@ -21,7 +21,12 @@ function startGame() {
     
     document.querySelector("main").innerHTML = div;
     document.querySelector('footer').style.display = 'none';
-    idClock = setInterval(clockUpdate, 1000)
+    if (beatStatus === false) {
+        idClock = setInterval(clockUpdate, 1000)
+    }
+    else {
+        idClock = setInterval(clockBeat, 1000)
+    }
 }
 
 function virarCarta(element) {
@@ -68,6 +73,11 @@ function endGame() {
 
 function regame () {
     let choice;
+
+    if (beatStatus === true) {
+        choice = 'nao';
+    }
+
     while (choice !== 'sim' && choice !== 'nao') {
         choice = prompt("Deseja salvar seu score no ranking?(sim / nao)");
     }
