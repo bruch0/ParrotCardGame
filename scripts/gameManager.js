@@ -69,7 +69,8 @@ function endGame() {
         alert(`Você ganhou em ${playerMoves} jogadas!`);
 
         if (beatStatus === true && qty === 14){
-            alert('Parabéns, você venceu o modo difícil, agora tente o modo impossível!')
+            alert('Parabéns, você venceu o modo difícil, agora tente o modo impossível!');
+            hard = true;
         }
         regame();
     }
